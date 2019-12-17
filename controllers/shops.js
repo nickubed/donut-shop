@@ -1,10 +1,11 @@
 let router = require('express').Router()
 
 router.get('/', (req, res) => {
-    res.send('ALL SHOPS ROUTE')
+    res.render('shops/index')
 })
 
 router.post('/', (req, res) => {
+    console.log(req.body)
     res.send('MAKE NEW SHOP ROUTE')
 })
 
@@ -13,7 +14,7 @@ router.get('/new', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-    res.send('SHOP DETAIL ROUTE')
+    res.render('shops/show')
 })
 
 module.exports = router
