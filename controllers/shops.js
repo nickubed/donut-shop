@@ -29,7 +29,14 @@ router.get('/new', (req, res) => {
 })
 
 router.get('/:id', (req, res) => {
-    res.render('shops/show')
+    db.shop.findByPk(req.params.id)
+    .then(shop => {
+        res.render('shops/show')
+    })
+    .catch(err => {
+        console.log('Error', err)
+        res.send('Error')
+    })
 })
 
 module.exports = router

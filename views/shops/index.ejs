@@ -3,11 +3,13 @@
 <div class="row">
     <% shop.forEach(s => { %>
         <div class="col s3">
+            <div class="card blue lighten-3">
             <h2>
                 <a href="/shops/<%=s.id%>">
                     <%= s.name %>
                 </a>
             </h2>
+        </div>
         </div>
     <% }) %>
 </div>
