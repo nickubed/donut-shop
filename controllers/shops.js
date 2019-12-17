@@ -2,7 +2,14 @@ let router = require('express').Router()
 let db = require('../models')
 
 router.get('/', (req, res) => {
-    res.render('shops/index')
+    db.shop.findAll()
+    .then(shop => {
+        res.render('shops/index', { shop })
+    })
+    .catch(err => {
+        console.log(err)
+        res.send('Error')
+    })
 })
 
 router.post('/', (req, res) => {
